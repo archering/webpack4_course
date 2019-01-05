@@ -9,7 +9,7 @@ module.exports = {
     output:{
         filename:"[name]-bundle.js",
         path:path.join(__dirname,"..","/dist"),
-        publicPath:"/" //  这里必须以 / 结尾
+        publicPath:"./" //  这里必须以 / 结尾
     },
     devServer:{
         contentBase:"dist",
@@ -89,6 +89,11 @@ module.exports = {
             title:"who am i ",
             filename:"index.html",
             template:"src/template/tpl.html"
-        })
+        }),
+        new HtmlWebpackPlugin({
+            title:"htmlwebpavkplugin default temp engine ejs no need plugin ",
+            filename:"test.html",
+            template:"./src/template/test.ejs"
+        })          
     ]
 }

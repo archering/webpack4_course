@@ -8,7 +8,7 @@ module.exports = {
     output:{
         filename:"[name]-bundle.js",
         path:path.join(__dirname,"..","/dist"),
-        publicPath:"/"  //  这里必须以 / 结尾
+        publicPath:"./"  //  这里必须以 / 结尾
     },
     devServer:{
         contentBase:"dist",
