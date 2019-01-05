@@ -1,5 +1,6 @@
 let path = require("path");
 let VueLoaderPlugin = require("vue-loader/lib/plugin");
+let HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     entry:{
         main:["./src/main.js"]
@@ -47,15 +48,6 @@ module.exports = {
                 test:/\.html$/,
                 use:[
                     {
-                        loader:"file-loader",
-                        options:{
-                            name:"[name].html"  //生成的文件起什么名字，名字来源于test匹配的结果
-                        }
-                    },
-                    {
-                        loader:"extract-loader"
-                    },
-                    {
                         loader:"html-loader",
                         options:{
                             attr:["img:src"]
@@ -90,6 +82,13 @@ module.exports = {
         ]
     },
     plugins:[
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        //  html-webpack-plugin 的作用是 一句webpack配置文件entry 里面的设定和 和html模板在
+        //  dist(entry里面指定的path) 生成html文件，并把生成的js入口文件插入这个html里面
+        new HtmlWebpackPlugin({
+            title:"who am i ",
+            filename:"index.html",
+            template:"src/template/tpl.html"
+        })
     ]
 }
