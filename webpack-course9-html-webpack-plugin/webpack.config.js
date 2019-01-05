@@ -7,8 +7,8 @@ module.exports = {
     },
     output:{
         filename:"[name]-bundle.js",
-        path:path.resolve(__dirname,"/dist"),
-        publicPath:"/"
+        path:path.join(__dirname,"/dist"),
+        publicPath:"/" //  这里必须以 / 结尾
     },
     resolve:{
         /****

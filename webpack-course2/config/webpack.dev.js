@@ -8,7 +8,7 @@ module.exports = {
     mode:"development", //webpack 4 特有
     output:{
         filename:"[name]-bundle.js",
-        path:path.resolve(__dirname,"/dist"),
+        path:path.join(__dirname,"..","/dist"),
         publicPath:"/"   // 这句话决定了  html 文件里面引用js的根路径
     },
     devServer:{
